@@ -1,54 +1,33 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import styles from './App.module.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Welcome from './components/Welcome/Welcome';
+import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './routes/home/Home';
 
 function App(): JSX.Element {
-  const [count, setCount] = useState<number>(0);
-
   return (
     <Router>
       <div className={styles.App}>
-        <header className={styles['App-header']}>
-          <img src={logo} className={styles['App-logo']} alt="logo" />
-          <Welcome />
-          <p>
-            <button onClick={() => setCount((count) => count + 1)}>
-              count is: {count}
-            </button>
-          </p>
-          <p>
-            Edit <code>App.tsx</code> and save to test HMR updates.
-          </p>
-          <p>
-            <a
-              className={styles['App-link']}
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-            {' | '}
-            <a
-              className={styles['App-link']}
-              href="https://vitejs.dev/guide/features.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vite Docs
-            </a>
-          </p>
+        <header>
+          <ul>
+            <Link to={'home'}>
+              <button>home</button>
+            </Link>
+            <Link to={'about'}>
+              <button>about</button>
+            </Link>
+          </ul>
+          <h1>header</h1>
+        </header>
+        <main className={styles['App-header']}>
           <Switch>
             <Route path="/about">
               <main>About</main>
             </Route>
             <Route path="/">
-              <main>Home</main>
+              <Home />
             </Route>
           </Switch>
-        </header>
+        </main>
       </div>
     </Router>
   );

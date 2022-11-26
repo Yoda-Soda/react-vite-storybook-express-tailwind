@@ -3,7 +3,7 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   framework: '@storybook/react',
   core: {
-    builder: 'storybook-builder-vite',
+    builder: '@storybook/builder-vite',
   },
   async viteFinal(config) {
     // Set relative base path to support deployment on path like /storybook
