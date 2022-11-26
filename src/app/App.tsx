@@ -2,12 +2,10 @@ import React from 'react';
 import styles from './App.module.css';
 import { Link, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './routes/home/Home';
-import Header from './components/Header/Header';
 
 function App(): JSX.Element {
   return (
     <>
-      <Header />
       <body>
         <Router>
           <div className={styles.App}>
